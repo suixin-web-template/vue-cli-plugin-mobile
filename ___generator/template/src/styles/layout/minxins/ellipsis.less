@@ -1,0 +1,15 @@
+/**
+ * Created by liubingwen on 2016/5/12.
+ */
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clamp(@num:1) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: @num;
+  -webkit-box-orient: vertical;
+}

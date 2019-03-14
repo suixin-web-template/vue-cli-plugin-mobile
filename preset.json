@@ -1,0 +1,36 @@
+{
+  "useConfigFiles": true,
+  "router": true,
+  "vuex": true,
+  "cssPreprocessor": "less",
+  "plugins": {
+    "@vue/cli-plugin-babel": {},
+    "@vue/cli-plugin-eslint": {
+      "config": "prettier",
+      "lintOn": ["save", "commit"]
+    }
+  },
+  "configs": {
+    "vue": {
+      "assetsDir": "pkg"
+    },
+    "postcss": {
+      "plugins": {
+        "postcss-px-to-viewport": {
+          "viewportWidth": 375,
+          "unitPrecision": 5,
+          "viewportUnit": "vw",
+          "selectorBlackList": [".ignore", "#nprogress"],
+          "minPixelValue": 3,
+          "mediaQuery": false
+        },
+        "postcss-viewport-units": {},
+        "cssnano": {
+          "reduceIdents": false,
+          "autoprefixer": false,
+          "postcss-zindex": false
+        }
+      }
+    }
+  }
+}

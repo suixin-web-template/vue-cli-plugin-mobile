@@ -1,0 +1,15 @@
+{
+  "name": "@suixin/vue-cli-plugin-mobile",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "vue create --preset preset.json demo"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-eslint": "^3.5.1",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-plugin-vue": "^5.2.2"
+  }
+}

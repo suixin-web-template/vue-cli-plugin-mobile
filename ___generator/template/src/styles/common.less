@@ -1,0 +1,83 @@
+@import "./layout/_normalize";
+@import "./layout/mixins";
+@import "~animate.css";
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background: #e7e7e7;
+  position: absolute
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  position: absolute
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #ccc;
+  position: absolute
+}
+html {
+  text-size-adjust: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+html,
+body {
+  margin: 0 auto;
+  width: 100%;
+  color: #333;
+}
+.app {
+  background-color: @background-color;
+}
+.child-view {
+  //transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  //overflow-x: hidden;
+  //overflow-y: scroll;
+  //height: 100%;
+  //transition: opacity,transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(10%, 0);
+}
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-10%, 0);
+}
+[aspectratio] {
+  position: relative;
+}
+[aspectratio]::before {
+  content: '';
+  display: block;
+  width: 1px;
+  margin-left: -1px;
+  height: 0;
+}
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #fff inset !important;
+}
+[aspectratio-content] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone X 独有样式写在这里*/
+}
+.img-box {
+  font-size: 0;
+  overflow: hidden;
+  img {
+    max-height: 100%;
+  }
+}
