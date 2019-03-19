@@ -5,22 +5,29 @@ module.exports = (api, options) => {
       "animate.css": "^3.7.0",
       lodash: "^4.17.11",
       nprogress: "^0.2.0",
-      vant: "^1.6.9",
       "vue-meta": "^1.5.8",
       "vuex-router-sync": "^5.0.0"
     },
     devDependencies: {
       "@suixin/cz-conventional-changelog": "^1.0.1",
-      "conventional-changelog-cli": "^2.0.12",
-      mockjs: "^1.0.1-beta3"
+      "conventional-changelog-cli": "^2.0.12"
     }
   });
   // 添加路由
   require("./router/index")(api, options);
   // 添加vuex
   require("./vuex/index")(api, options);
+  if (options.mock) {
+    require("./mock/index")(api);
+    entryFileStr += `\nif (process.env.NODE_ENV !== "production") {
+  require("./mock/index");
+}`;
+  }
+  if (options.vant) {
+    require("./vant/index")(api, options);
+  }
   api.injectImports(api.entryFile, `import debounce from "lodash/debounce";`);
-  entryFileStr += `window.onresize = debounce(function() {
+  entryFileStr += `\nwindow.onresize = debounce(function() {
   store.commit("updateClientHeight", window.innerHeight);
 }, 100);`;
 

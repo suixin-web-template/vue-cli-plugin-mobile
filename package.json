@@ -1,14 +1,15 @@
 {
   "name": "@suixin/vue-cli-plugin-mobile",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "scripts": {
     "test": "vue create --preset ./ demo",
-    "publish": "npm publish --access=public"
+    "push": "npm publish --access=public"
   },
   "files": [
     "generator",
-    "index.js"
+    "index.js",
+    "prompts.js"
   ],
   "devDependencies": {
     "@vue/cli-plugin-eslint": "^3.5.1",
@@ -16,5 +17,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
     "eslint-plugin-vue": "^5.2.2"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2"
   }
 }

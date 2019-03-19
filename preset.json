@@ -9,9 +9,7 @@
       "config": "prettier",
       "lintOn": ["save", "commit"]
     },
-    "@suixin/vue-cli-plugin-mobile": {
-      "prompts": true
-    }
+    "@suixin/vue-cli-plugin-mobile": {}
   },
   "configs": {
     "vue": {
