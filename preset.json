@@ -1,7 +1,7 @@
 {
   "useConfigFiles": true,
-  "router": true,
-  "vuex": true,
+  "router": false,
+  "vuex": false,
   "cssPreprocessor": "less",
   "plugins": {
     "@vue/cli-plugin-babel": {},
@@ -13,24 +13,6 @@
   "configs": {
     "vue": {
       "assetsDir": "pkg"
-    },
-    "postcss": {
-      "plugins": {
-        "postcss-px-to-viewport": {
-          "viewportWidth": 375,
-          "unitPrecision": 5,
-          "viewportUnit": "vw",
-          "selectorBlackList": [".ignore", "#nprogress"],
-          "minPixelValue": 3,
-          "mediaQuery": false
-        },
-        "postcss-viewport-units": {},
-        "cssnano": {
-          "reduceIdents": false,
-          "autoprefixer": false,
-          "postcss-zindex": false
-        }
-      }
     }
   }
 }

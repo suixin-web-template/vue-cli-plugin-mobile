@@ -9,6 +9,10 @@ const RouterLayout = createRouterLayout(layout => {
   return import("@/layouts/" + layout + ".vue");
 });
 export default new Router({
+  <%_ if (historyMode) { _%>
+  mode: 'history',
+  base: process.env.BASE_URL,
+  <%_ } _%>
   routes: [
     {
       path: "/",

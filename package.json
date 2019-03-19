@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "vue create --preset preset.json demo"
+    "test": "vue create --preset ./ demo"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "^3.5.1",

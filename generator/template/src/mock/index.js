@@ -1,5 +1,5 @@
 import Mock from "mockjs";
-import { BASE_URL } from "@/api/instance";
+import { BASE_URL } from "@/config";
 
 const modulesFiles = require.context("./modules", false, /\.js$/);
 modulesFiles.keys().forEach(item => {

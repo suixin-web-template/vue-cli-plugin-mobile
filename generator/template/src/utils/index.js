@@ -1,5 +1,5 @@
 import { Notify } from "vant";
-import { BASE_URL } from "@/api/instance";
+import { BASE_URL } from "@/config";
 /**
  * @export
  * @returns {number}
