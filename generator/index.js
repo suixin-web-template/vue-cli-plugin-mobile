@@ -86,7 +86,9 @@ module.exports = (api, options) => {
           minPixelValue: 3, // 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值
           mediaQuery: false // 允许在媒体查询中转换`px`
         },
-        "postcss-viewport-units": {},
+        "postcss-viewport-units": {
+          silence: true
+        },
         cssnano: {
           reduceIdents: false, // 禁止修改动画名称
           // 'preset': 'advanced',

@@ -1,10 +1,7 @@
 <template>
   <div class="app">
     <transition :name="transitionName">
-      <router-view
-        class="child-view"
-        :style="{ minHeight: height + 'px' }"
-      ></router-view>
+      <router-view class="child-view"></router-view>
     </transition>
     <div
       class="mask_transparent"
@@ -27,7 +24,8 @@
 export default {
   data() {
     return {
-      transitionName: "slide-left"
+      transitionName: "slide-left",
+      $showMask: false // 透明层显示 可配合vuex使用
     };
   },
   watch: {

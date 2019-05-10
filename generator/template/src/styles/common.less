@@ -1,6 +1,5 @@
 @import "./layout/normalize";
 @import "./layout/mixins";
-@import "~animate.css";
 ::-webkit-scrollbar-track {
   border-radius: 0;
   background: #e7e7e7;
@@ -29,11 +28,8 @@ body {
   width: 100%;
   color: #333;
 }
-.app {
-  background-color: @background-color;
-}
 .child-view {
-  //transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   //overflow-x: hidden;
   //overflow-y: scroll;
   //height: 100%;

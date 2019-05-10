@@ -8,12 +8,6 @@
     "@vue/cli-plugin-eslint": {
       "config": "prettier",
       "lintOn": ["save", "commit"]
-    },
-    "@suixin/vue-cli-plugin-mobile": {}
-  },
-  "configs": {
-    "vue": {
-      "assetsDir": "pkg"
     }
   }
 }
