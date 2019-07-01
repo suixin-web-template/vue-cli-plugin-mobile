@@ -1,10 +1,7 @@
-const chalk = require("chalk");
 module.exports = [
   {
     name: "routerHistoryMode",
-    message: `使用路由的history模式? ${chalk.yellow(
-      "(Requires proper server setup for index fallback in production)"
-    )}`,
+    message: `使用路由的history模式? (Requires proper server setup for index fallback in production) `,
     type: `confirm`,
     default: true
   },
