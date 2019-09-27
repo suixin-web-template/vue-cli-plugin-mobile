@@ -17,6 +17,12 @@ module.exports = (api, options) => {
   require("./router/index")(api, options);
   // 添加vuex
   require("./vuex/index")(api, options);
+  entryFileStr += `\nwindow.addEventListener(
+  "resize",
+  debounce(() => {
+    store.commit("updateClientHeight");
+    store.commit("updateClientWidth");
+}, 100);`;
   if (options.mock) {
     require("./mock/index")(api);
     entryFileStr += `\nif (process.env.NODE_ENV !== "production") {
@@ -27,9 +33,6 @@ module.exports = (api, options) => {
     require("./vant/index")(api, options);
   }
   api.injectImports(api.entryFile, `import debounce from "lodash/debounce";`);
-  entryFileStr += `\nwindow.onresize = debounce(function() {
-  store.commit("updateClientHeight", window.innerHeight);
-}, 100);`;
 
   // 添加vuex-router-sync
   api.injectImports(api.entryFile, `import { sync } from "vuex-router-sync";`);
@@ -48,7 +51,7 @@ module.exports = (api, options) => {
       axios: "^0.18.0"
     },
     devDependencies: {
-      "@suixin/yapi": "^2.1.2"
+      "@suixin/yapi": "^3.0.2"
     }
   });
 

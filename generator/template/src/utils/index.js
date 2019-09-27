@@ -1,5 +1,14 @@
 import { Notify } from "vant";
 import { BASE_URL } from "@/config";
+
+/**
+ * @export
+ * @returns {number}
+ */
+export function getClientWidth() {
+  return document.documentElement.clientWidth || document.body.clientWidth;
+}
+
 /**
  * @export
  * @returns {number}

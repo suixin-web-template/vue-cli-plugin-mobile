@@ -2,7 +2,7 @@
  * Created by liubingwen on 2017/12/19.
  */
 import Cookie from "js-cookie";
-import { getClientHeight } from "@/utils/index";
+import { getClientHeight, getClientWidth } from "@/utils/index";
 import { TOKEN } from "@/config";
 import { Toast } from "vant";
 export default {
@@ -10,11 +10,15 @@ export default {
     token: Cookie.get(TOKEN),
     isLoading: false,
     showMask: false,
-    height: getClientHeight(),
+    width: getClientWidth(),
+    height: getClientHeight()
   },
   mutations: {
     updateClientHeight(state) {
       state.height = getClientHeight();
+    },
+    updateClientWidth(state) {
+      state.width = getClientWidth();
     },
     updateLoadingStatus(state, payload) {
       state.isLoading = payload;

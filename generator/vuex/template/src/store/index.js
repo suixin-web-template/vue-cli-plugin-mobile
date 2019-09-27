@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import getters from "@/store/getters";
 
 Vue.use(Vuex);
 const modulesFiles = require.context("./modules", false, /\.js$/);
@@ -11,5 +12,6 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 }, {});
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== "production",
-  modules
+  modules,
+  getters
 });
