@@ -58,7 +58,8 @@ module.exports = (api, options) => {
   // 添加style-resources-loader
   api.extendPackage({
     devDependencies: {
-      "style-resources-loader": "^1.2.1"
+      "style-resources-loader": "^1.2.1",
+      "vue-cli-plugin-style-resources-loader": "^0.1.3"
     }
   });
 
