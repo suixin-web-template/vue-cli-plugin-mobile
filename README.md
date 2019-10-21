@@ -1,9 +1,9 @@
 vue-cli-preset-mobile
 
-vue-cli-preset-mobile 是一个 web 前端项目骨架，用于配合 Vue.js 开发标准工具 [Vue CLI 3](https://cli.vuejs.org/zh/) 在创建新项目时使用。
+vue-cli-preset-mobile 是一个 web 前端项目骨架，用于配合 Vue.js 开发标准工具 [Vue CLI 4](https://cli.vuejs.org/zh/) 在创建新项目时使用。
 
 ## 准备工作
-确认计算机已安装 [nodejs v8.11.0+](https://nodejs.org/en/download/) 与 npm
+确认计算机已安装 [nodejs v10.0.0+](https://nodejs.org/en/download/) 与 npm
 
 ## 快速开始
 

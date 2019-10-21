@@ -1,7 +1,7 @@
-module.exports = (api) => {
+module.exports = api => {
   api.extendPackage({
     dependencies: {
-      vant: "^1.6.9"
+      vant: "^2.2.9"
     },
     devDependencies: {
       "babel-plugin-import": "^1.11.0"

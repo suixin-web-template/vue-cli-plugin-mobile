@@ -5,7 +5,7 @@ module.exports = (api, options) => {
       "animate.css": "^3.7.0",
       lodash: "^4.17.11",
       nprogress: "^0.2.0",
-      "vue-meta": "^1.5.8",
+      "vue-meta": "^2.3.1",
       "vuex-router-sync": "^5.0.0"
     },
     devDependencies: {
@@ -48,7 +48,7 @@ module.exports = (api, options) => {
   // 添加api
   api.extendPackage({
     dependencies: {
-      axios: "^0.18.0"
+      axios: "0.18.1"
     },
     devDependencies: {
       "@suixin/yapi": "^3.0.2"

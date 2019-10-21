@@ -19,14 +19,12 @@ module.exports = {
       }
     ]);
     // 关闭性能提示
-    // config.performance.hints(false);
+    config.performance.hints(false);
     config.when(isProd, options => {
-      // 因4+版本只支持到minimizer 无法更细粒度的修改
-      const TerserPlugin = require("terser-webpack-plugin");
-      const terserOptions = require("./terserOptions");
-      options.optimization.minimizer([
-        new TerserPlugin(terserOptions(options))
-      ]);
+      options.optimization.minimizer("terser").tap(args => {
+        args[0].terserOptions.compress.drop_console = true;
+        return args;
+      });
     });
   },
   pluginOptions: {
