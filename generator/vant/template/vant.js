@@ -1,7 +1,13 @@
-import Vue from "vue";
-import { Notify, Loading } from "vant";
-const globalIntro = [Notify, Loading];
-
-globalIntro.forEach(C => {
-  Vue.use(C);
+import { Notify, Loading, Field } from "vant";
+Notify.setDefaultOptions({
+  duration: 2000
 });
+const components = { Notify, Loading, Field };
+function install(Vue) {
+  Object.values(components).forEach(C => {
+    Vue.use(C);
+  });
+}
+export default {
+  install
+};

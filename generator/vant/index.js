@@ -20,7 +20,7 @@ module.exports = api => {
       ]
     }
   });
-  api.injectImports("src/plugins/index.js", `import "./vant";`);
+  api.injectImports("src/plugins/index.js", `import vant from "./vant";`);
   api.render({
     "./src/plugins/vant.js": "./template/vant.js"
   });

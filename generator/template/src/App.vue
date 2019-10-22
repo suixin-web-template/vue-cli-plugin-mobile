@@ -14,8 +14,7 @@
 export default {
   data() {
     return {
-      transitionName: "slide-left",
-      $showMask: false // 透明层显示 可配合vuex使用
+      transitionName: "slide-left"
     };
   },
   watch: {

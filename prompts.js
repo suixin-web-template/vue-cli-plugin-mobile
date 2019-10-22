@@ -5,16 +5,16 @@ module.exports = [
     type: `confirm`,
     default: true
   },
-  {
-    name: "mock",
-    message: `开发环境使用mock模拟数据?`,
-    type: `confirm`,
-    default: true
-  },
-  {
-    name: "vant",
-    message: `是否使用vant?`,
-    type: `confirm`,
-    default: true
-  }
+  // {
+  //   name: "mock",
+  //   message: `开发环境使用mock模拟数据?`,
+  //   type: `confirm`,
+  //   default: true
+  // },
+  // {
+  //   name: "vant",
+  //   message: `是否使用vant?`,
+  //   type: `confirm`,
+  //   default: true
+  // }
 ];

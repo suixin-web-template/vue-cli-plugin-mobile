@@ -24,15 +24,15 @@ module.exports = (api, options) => {
     store.commit("updateClientHeight");
     store.commit("updateClientWidth");
 }, 100));`;
-  if (options.mock) {
-    require("./mock/index")(api);
-    entryFileStr += `\nif (process.env.NODE_ENV !== "production") {
-  require("./mock/index");
-}`;
-  }
-  if (options.vant) {
+  // if (options.mock) {
+  //   require("./mock/index")(api);
+  //   entryFileStr += `\nif (process.env.NODE_ENV !== "production") {
+  // require("./mock/index");
+// }`;
+  // }
+  // if (options.vant) {
     require("./vant/index")(api, options);
-  }
+  // }
 
   // 添加vuex-router-sync
   api.injectImports(api.entryFile, `import { sync } from "vuex-router-sync";`);
