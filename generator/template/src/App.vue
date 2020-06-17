@@ -3,11 +3,6 @@
     <transition :name="transitionName">
       <router-view class="child-view"></router-view>
     </transition>
-    <div
-      class="mask_transparent"
-      v-show="$showMask"
-      style="z-index: 99999"
-    ></div>
   </div>
 </template>
 <script>

@@ -1,82 +1,89 @@
 module.exports = (api, options) => {
   let entryFileStr = "";
+  // 初始化配置
+  require("./init/index")(api, options);
   api.extendPackage({
     dependencies: {
-      "animate.css": "^3.7.0",
-      lodash: "^4.17.11",
-      nprogress: "^0.2.0",
-      "vue-meta": "^2.3.1",
-      "vuex-router-sync": "^5.0.0"
+      "vue-meta": "^2.4.0"
     },
     devDependencies: {
       "@suixin/cz-conventional-changelog": "^1.0.1",
-      "conventional-changelog-cli": "^2.0.12"
+      "conventional-changelog-cli": "^2.0.34"
     }
   });
   // 添加路由
   require("./router/index")(api, options);
   // 添加vuex
   require("./vuex/index")(api, options);
-  api.injectImports(api.entryFile, `import debounce from "lodash/debounce";`);
-  entryFileStr += `\nwindow.addEventListener(
-  "resize",
-  debounce(() => {
-    store.commit("updateClientHeight");
-    store.commit("updateClientWidth");
-}, 100));`;
-  // if (options.mock) {
-  //   require("./mock/index")(api);
-  //   entryFileStr += `\nif (process.env.NODE_ENV !== "production") {
-  // require("./mock/index");
-// }`;
-  // }
   // if (options.vant) {
-    require("./vant/index")(api, options);
+  require("./vant/index")(api, options);
   // }
 
   // 添加vuex-router-sync
+  api.extendPackage({
+    dependencies: {
+      "vuex-router-sync": "^5.0.0"
+    }
+  });
   api.injectImports(api.entryFile, `import { sync } from "vuex-router-sync";`);
   entryFileStr += `\nsync(store, router);`;
 
   // 添加cookie
   api.extendPackage({
     devDependencies: {
-      "js-cookie": "^2.2.0"
+      "js-cookie": "^2.2.1"
     }
   });
 
   // 添加api
   api.extendPackage({
     dependencies: {
-      axios: "0.18.1"
+      axios: "~0.19.1"
     },
     devDependencies: {
-      "@suixin/yapi": "^3.0.2"
+      "@suixin/yapi": "^4.0.5"
     }
   });
 
   // 添加style-resources-loader
   api.extendPackage({
     devDependencies: {
-      "style-resources-loader": "^1.2.1",
-      "vue-cli-plugin-style-resources-loader": "^0.1.3"
+      "style-resources-loader": "^1.3.3",
+      "vue-cli-plugin-style-resources-loader": "^0.1.4"
+    },
+    vue: {
+      pluginOptions: {
+        "style-resources-loader": {
+          preProcessor: "less",
+          patterns: ["./src/styles/layout/mixins/*.less"]
+        }
+      }
     }
   });
 
   // 添加自动路由
   api.extendPackage({
     dependencies: {
-      "vue-router-layout": "^0.1.2"
+      "vue-router-layout": "^0.1.5"
     },
     devDependencies: {
-      "vue-auto-routing": "^0.3.0"
+      "vue-auto-routing": "^0.5.0",
+      "vue-cli-plugin-auto-routing": "~0.4.1"
+    },
+    vue: {
+      pluginOptions: {
+        autoRouting: {
+          pages: "src/pages",
+          nested: true
+        }
+      }
     }
   });
 
   // 添加postcss vw插件
   api.extendPackage({
     devDependencies: {
-      "postcss-px-to-viewport": "^1.1.0",
+      "postcss-px-to-viewport": "^1.1.1",
       "postcss-viewport-units": "^0.1.6"
     },
     postcss: {
@@ -102,7 +109,19 @@ module.exports = (api, options) => {
       }
     }
   });
-
+  // 配置webpack
+  api.extendPackage({
+    vue: {
+      chainWebpack: config => {
+        config.when(process.env.NODE_ENV === "production", options => {
+          options.optimization.minimizer("terser").tap(args => {
+            args[0].terserOptions.compress.drop_console = true;
+            return args;
+          });
+        });
+      }
+    }
+  });
   api.render("./template", {
     entryFileStr: entryFileStr.trim()
   });

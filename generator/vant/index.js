@@ -1,10 +1,10 @@
 module.exports = api => {
   api.extendPackage({
     dependencies: {
-      vant: "^2.2.9"
+      vant: "^2.8.6"
     },
     devDependencies: {
-      "babel-plugin-import": "^1.11.0"
+      "babel-plugin-import": "^1.13.0"
     },
     babel: {
       plugins: [
@@ -13,7 +13,7 @@ module.exports = api => {
           {
             libraryName: "vant",
             libraryDirectory: "es",
-            style: name => `${name}/style/less`
+            style: true
           },
           "vant"
         ]

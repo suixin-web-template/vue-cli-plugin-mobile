@@ -8,6 +8,15 @@ Vue.use(Router);
 const RouterLayout = createRouterLayout(layout => {
   return import("@/layouts/" + layout + ".vue");
 });
+const NotFound = [];
+const T = routes.find(item => item.path === "404");
+if (T) {
+  NotFound.push({
+    ...T,
+    path: "*",
+    name: "NotFound"
+  });
+}
 export default new Router({
   <%_ if (historyMode) { _%>
   mode: 'history',
@@ -17,7 +26,7 @@ export default new Router({
     {
       path: "/",
       component: RouterLayout,
-      children: routes
+      children: routes.concat(NotFound)
     }
   ]
 });

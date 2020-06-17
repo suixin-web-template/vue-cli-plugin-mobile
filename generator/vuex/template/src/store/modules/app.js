@@ -9,7 +9,6 @@ export default {
   state: {
     token: Cookie.get(TOKEN),
     isLoading: false,
-    showMask: false,
     width: getClientWidth(),
     height: getClientHeight()
   },
@@ -22,13 +21,6 @@ export default {
     },
     updateLoadingStatus(state, payload) {
       state.isLoading = payload;
-    },
-    toggleMask(state, payload) {
-      state.showMask = payload;
-    },
-    toggleMaskAndLoading(state, payload) {
-      state.showMask = payload;
-      state.isLoading = payload;
     }
   },
   actions: {
@@ -38,12 +30,10 @@ export default {
         duration: 0,
         forbidClick: true
       });
-      context.commit("toggleMask", true);
       context.commit("updateLoadingStatus", true);
     },
     hideLoading(context) {
       Toast.clear();
-      context.commit("toggleMask", false);
       context.commit("updateLoadingStatus", false);
     }
   }

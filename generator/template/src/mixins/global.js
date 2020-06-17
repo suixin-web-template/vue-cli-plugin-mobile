@@ -12,19 +12,11 @@ export default {
       return text.substring(0, frontLen) + asterisk + text.substring(end);
     }
   },
-  watch: {
-    $loading(val) {
-      this.$store.commit("toggleMask", val);
-    }
-  },
   computed: {
     ...mapState({
-      platCode: state => state.route.query.platCode,
       $isLoading: state => state.app.isLoading,
-      $showMask: state => state.app.showMask,
       $height: state => state.app.height,
-      $width: state => state.app.width,
-      $userInfo: state => state.app.userInfo
+      $width: state => state.app.width
     }),
     ...mapGetters(["$scale"])
   }
